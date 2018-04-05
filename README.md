@@ -1,5 +1,35 @@
 # Base Wordpress Development Theme
 
+## Environment
+
+Each project needs its own unique environment file, `.env`, which specifies some data that's unique to the project. This is used to set up the docker file and to provide authentication variables for the `./.deploy.sh` script, which deploys your development to the specified remote server. When starting a project, you need to either obtain or set up this `.env` file. A incomplete template, `.sample.env` is included with this repository. It looks like this:
+
+```sh
+
+VOLUME_BASE_PATH=.
+
+MYSQL_ROOT_PASSWORD=docker
+MYSQL_DATABASE=wordpress
+MYSQL_USER=docker
+MYSQL_PASSWORD=docker
+
+WORDPRESS_DB_HOST=database
+WORDPRESS_DB_NAME=wordpress
+WORDPRESS_DB_USER=docker
+WORDPRESS_DB_PASSWORD=docker
+
+DOCKER_WORDPRESS_CONTAINER= # add the name of your project + '_wordpress_1' here
+DOCKER_DATABASE_CONTAINER= # add the name of your project + '_database_1' here
+
+KINSTA_IP= #add the IP of your remote server, usually a Kinsta staging instance, here.
+KINSTA_PORT= #add the port for SSH on the remote server here.
+KINSTA_USER= #add the username of the SSH user here.
+
+```
+
+To complete the file, fill in the `DOCKER_DATABASE_CONTAINER` and `DOCKER_WORDPRESS_CONTAINER`. If you're planning to deploy this codebase at any point, fill in the details for your remote location, otherwise delete the variable names. When you're done, rename the file `.env`, and you should be set.
+
+
 ## DevOps Assumptions
 
 We're replacing our previous Webpack + BrowserSync development setup with a Gulp development setup for this project. Our concensus is that Webpack bundling is simply too slow, and that Webpack HMR is too convoluted to properly implement in a non-react setup, where styles and markup are not bundled as javascript modules.
