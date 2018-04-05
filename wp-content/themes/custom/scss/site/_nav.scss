@@ -1,0 +1,182 @@
+
+$text-nav: (
+	xs: (13px, 53px),
+	sm: (12px, 60px),
+	md: (14px, 53px),
+	lg: (16px, 53px),
+	xl: (19px, 53px)
+	);
+
+
+#nav{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $nav-height;
+	overflow: hidden;
+	background: lighten($brand,5%);
+	z-index: 7;
+
+	&.fixed{
+		position: fixed;
+	}
+
+	@media screen and (max-width: $md) {
+		height: $nav-height-md;
+	}
+
+	@media screen and (max-width: $sm) {
+		height: $nav-height-mobile;
+	}
+
+}
+
+#nav-menus{
+	float: right;
+	padding-right: 10px;
+	height: $nav-height;
+}
+
+
+
+//UPPER
+#nav-menu-upper{
+
+	@extend .clearfix;
+	margin-top: 15px;
+	margin-bottom: 7px;
+
+	@media screen and (max-width: $md) {
+		margin-bottom: 2px;
+	}
+	
+	ul{
+		float: right;
+		position: relative;
+		left: 3px;
+	}
+
+	li{
+		display: inline-block;
+		margin-left: 7px;
+
+		@media screen and (max-width: $md) {
+			margin-left: 3px;
+		}	
+
+		a{
+			font-size: 14px;
+			@extend .bold;
+			color: white;
+			display: block;
+			padding: 0 15px;
+			@include transition(all .125s);
+
+			&:hover{
+			}
+
+			@media screen and (max-width: $md) {
+				paddin: 5px;
+			}
+
+			@media screen and (max-width: $xs) {
+				display: none;
+			}		
+		}
+
+	}
+}
+
+
+
+//PRIMARY
+#nav-menu-primary{
+
+	@extend .clearfix;
+
+	li{
+		display: inline-block;
+		margin-left: 10px;	
+
+		@media screen and (max-width: $md) {
+			margin-left: 5px;
+		}
+
+		a{
+			@include text-size($text-nav);
+			font-size: 17px;
+			@extend .bold;
+			@extend .tracked-less;
+			color: white;
+			display: block;
+			padding: 0 20px;
+			@include transition(all .125s);
+			height: 55px;
+			vertical-align: middle;
+			text-transform: uppercase;
+
+			&:hover, &.on{
+				border-bottom: 4px solid white;
+			}
+
+			@media screen and (max-width: $lg) {
+				padding: 0 8px;
+			}			
+
+			@media screen and (max-width: $md) {
+				padding: 0 6px;
+				letter-spacing: .02em;
+			}
+
+		}
+
+	}
+}
+
+
+
+//LOGOS
+#logo{
+	height: inherit;
+	width: $nav-height;
+	float: left;
+
+	a{
+		padding: 0;
+		height: inherit;
+	}
+
+	svg{
+		height: 100%;
+		width: auto;
+	}
+}
+
+
+.logo{
+
+	a{
+		display: block;
+	}
+}
+
+
+//mobile nav
+
+
+#mobile-nav{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	right: -100%;
+	top: 0;
+	background: $brand;
+	z-index: 7;
+}
+
+.mobile-nav-open{
+	#mobile-nav{
+		right: 0;
+	}
+}
+
