@@ -8,21 +8,13 @@
 	<div id="nav-menus">
 		<div id="nav-menu-upper">
 			<ul>
-				<li id="nav-link-shop"><a href="/shop">Shop</a></li>
-				<li id="nav-link-login"><a href="/login">Login</a></li>
-				<li id="nav-link-cart"><a href="/cart"><span class="icon" data-icon="i"></span></a></li>
+				<li><a href="">Upper Link</a></li>
 			</ul>
 		</div>
 		<div id="nav-menu-primary">
 			<ul>
-				<li><a href="/visit" class="dropdown-link" id="nav-link-visit" data-dropdown-target="visit">Visit</a></li>
-				<li><a href="/about" class="dropdown-link" id="nav-link-about" data-dropdown-target="about">About</a></li>
-				<li><a href="/exhibitions" class="dropdown-link" id="nav-link-exhibitions" data-dropdown-target="exhibitions">Exhibitions</a></li>
-				<li><a href="/collection" class="dropdown-link" id="nav-link-collection" data-dropdown-target="collection">Collection</a></li>
-				<li><a href="/events" class="dropdown-link" id="nav-link-events" data-dropdown-target="events">Events</a></li>
-				<li><a href="/education" class="dropdown-link" id="nav-link-education" data-dropdown-target="education">Education</a></li>
-				<li><a href="/join" class="dropdown-link" id="nav-link-join" data-dropdown-target="join">Join</a></li>
-				<li><a href="/support" class="dropdown-link" id="nav-link-support" data-dropdown-target="support">Support</a></li>
+				<li><a href="">Primary Link</a></li>
+				<li><a href="">Primary Link</a></li>
 			</ul>
 		</div>
 	</div>

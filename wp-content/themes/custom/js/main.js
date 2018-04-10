@@ -7,7 +7,7 @@ window.$ = global.$;
 import { config } from './config.js';
 import { loading } from './loading.js';
 import { linksNewtab } from './links-newtab.js';
-import { dropdowns } from './dropdowns.js';
+//import { dropdowns } from './dropdowns.js';
 //import { stickyNav } from './sticky-nav.js';
 import { jumpLinks } from './jump-links.js';
 import { modals } from './modals.js';
@@ -20,7 +20,7 @@ livereload();
 
 loading(config.loading);
 linksNewtab(config.linksNewtab);
-dropdowns(config.dropdowns);
+//dropdowns(config.dropdowns);
 //stickyNav(config.stickyNav);
 jumpLinks(config.jumpLinks);
 modals(config.modals);

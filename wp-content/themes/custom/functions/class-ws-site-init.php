@@ -29,10 +29,9 @@ class WS_Site {
     public function register_image_sizing() {
         if ( function_exists( 'add_image_size' ) ) {
 
-            add_image_size('social_card', 600, 600, array( 'x_crop_position' => 'center', 'y_crop_position' => 'center'));
+            add_image_size('social_card', 1200, 630, array( 'x_crop_position' => 'center', 'y_crop_position' => 'center'));
             add_image_size('acf_preview', 300, 300, false);
             add_image_size('page_hero', 1440, 660, false);
-
 
         }
     }
@@ -61,11 +60,6 @@ class WS_Site {
             wp_enqueue_style('main-css', $compiled_resources_uri . $main_css, array(), null);
             wp_enqueue_script('jquery');
             wp_enqueue_script('main-js', $compiled_resources_uri . $main_js, array('jquery'), $main_js_ver);
-
-            // if (!file_exists( dirname( __FILE__ ) . '/env_prod' )){
-            //     wp_register_script( 'cssrefresh', get_template_directory_uri() . '/scripts/cssrefresh.js');
-            //     wp_enqueue_script( 'cssrefresh' );
-            // }
 
         }
     }

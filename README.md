@@ -78,11 +78,11 @@ The npm scripts have also been updated. You can run `npm run build` to invoke `g
 
 2. Clone this repository locally to a directory in your workspace. The specific location of the directory is not significant.
 
-3. From inside the cloned drectory, Run `npm install` to get the dependencies for this project. When that's done, run `npm run build` to test your installation. If a directory called `dist` shows up in your workspace, and you don't get any error messages, your front-end development environment is configured properly.
+3. From inside the cloned drectory, Run `npm install` to get the dependencies for this project. When that's done, run `npm run build` to test your installation. If you don't get any errors from the build process, and you see a folder named 'bundles' in the 'themes/custom' folder, with files named 'admin-bundle.css', 'bundle.css' and 'bundle.js', the process worked.
 
-4. Next, we need to enable Public Key access to the staging environment for you. You can do this using the `ssh-copy-id` command line tool, along with the typical public key you use for Digital Ocean, for example. The password for this specific instance (which you'll need to copy your `id_rsa.pub` file over) can be found in the Kinsta management console.
+4. Rename the `.sample.env` file to `.env`, and fill in the missing fields `KINSTA_IP`, `KINSTA_IP` with the target Kinsta instance for this project (if relevant, otherwise delete the field), and the `ACF_PRO_KEY` field.
 
-5. Rename the `.sample.env` file to `.env`, and fill in the missing fields `KINSTA_IP`, `KINSTA_IP` with the target Kinsta instance for this project (if relevant, otherwise delete the field), and the `ACF_PRO_KEY` field.
+5. Next, we need to enable Public Key access to the staging environment for you. You can do this using the `ssh-copy-id` command line tool, along with the typical public key you use for Digital Ocean, for example. Typically, your public key will be in `~/.ssh/id_rsa.pub`, so you would run `ssh-copy-id -i ~/.ssh/id_rsa.pub {{user:ip.of.destination}}`. The password for this specific instance (which you'll need to copy your `id_rsa.pub` file over) can be found in the Kinsta management console.
 
 6. run `docker-compose up -d` to provision a new virtual environment and database running wordpress.
 

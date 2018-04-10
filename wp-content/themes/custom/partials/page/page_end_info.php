@@ -1,1 +1,1 @@
-<h1>page end info</h1>
+<h1>page end info.php</h1>
