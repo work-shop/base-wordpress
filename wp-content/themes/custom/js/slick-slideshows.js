@@ -3,9 +3,10 @@
 var slick = require ('slick-carousel');
 
 function slickSlideshows( config ) {
-	console.log('slick-slideshows.js loaded');
+	//console.log('slick-slideshows.js loaded');
 
 	$( document ).ready( function() {
+
 		$('.slick-default').slick({
 			slidesToShow: config.slidesToShow,
 			dots: config.dots,
@@ -15,6 +16,7 @@ function slickSlideshows( config ) {
 			autoplaySpeed: config.autoplaySpeed,
 			speed: config.speed
 		});
+
 	});
 
 }

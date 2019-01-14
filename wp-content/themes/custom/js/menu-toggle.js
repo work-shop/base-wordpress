@@ -1,7 +1,7 @@
 "use strict";
 
 function menuToggle( config ) {
-	console.log('menu-toggle.js loaded');
+	//console.log('menu-toggle.js loaded');
 
 	$(document).ready( function() {
 		$(config.menuToggleSelector).click(function(e) {
@@ -13,6 +13,7 @@ function menuToggle( config ) {
 
 	//open and close the menu
 	function menuToggle(){
+		//console.log('menuToggle');
 
 		if($('body').hasClass(config.bodyOffClass)){
 			$(config.menuToggleSelector).removeClass('closed').addClass('open');
@@ -23,6 +24,8 @@ function menuToggle( config ) {
 			$(config.menuToggleSelector).removeClass('open').addClass('closed');
 			$(config.blanketSelector).removeClass('on').addClass('off');			
 			$('body').removeClass(config.bodyOnClass).addClass(config.bodyOffClass);
+			$('body').removeClass('dropdown-on').addClass('dropdown-off');
+			$('.has-sub-menu').removeClass('open').addClass('closed');
 		}
 
 	}	

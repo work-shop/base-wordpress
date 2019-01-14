@@ -2,8 +2,8 @@
 Contributors: JoomUnited
 Tags: google, webmaster tools, keywords, meta, meta description, meta keywords, meta title, robots meta, search engine optimization, seo, wordpress seo, yahoo, image optimization, image resize, custom post seo, redirect, redirection, 301, broken link
 Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 3.6.8
+Tested up to: 5.0.0
+Stable tag: 4.0.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,6 +24,7 @@ WP Meta SEO gives you the control over all your meta content and images. Bulk SE
 * Generate XML and HTML sitemaps
 * Facebook and Twitter social sharing custom elements per content
 * Breadcrumb generator
+* Gutenberg new WordPress content ediotor compatible!
 
 > <strong>Features included in WP Meta SEO Addon</strong><br>
 > * Google Search Console keyword suggestion in content
@@ -173,12 +174,13 @@ The redirect manager will help you to fix all types of 404 errors you can encoun
 * Google Ananlytics tracking and statistics display
 
 = Main plugins from JoomUnited: =
-* WP Media Folder: <a href="https://www.joomunited.com/wordpress-products/wp-media-folder" rel="friend"> https://www.joomunited.com/wordpress-products/wp-media-folder</a>
-* WP File Download: <a href="https://www.joomunited.com/wordpress-products/wp-table-manager" rel="friend"> https://www.joomunited.com/wordpress-products/wp-table-manager</a>
-* WP Table Manager: <a href="https://www.joomunited.com/wordpress-products/wp-file-download" rel="friend">https://www.joomunited.com/wordpress-products/wp-file-download</a>
-* WP Speed of Light: <a href="https://www.joomunited.com/wordpress-products/wp-speed-of-light" rel="friend">https://www.joomunited.com/wordpress-products/wp-speed-of-light</a>
-* WP Latest Posts: <a href="https://www.joomunited.com/wordpress-products/wp-latest-posts" rel="friend">https://www.joomunited.com/wordpress-products/wp-latest-posts</a>
-* WP Smart Editor: <a href="https://wordpress.org/plugins/wp-smart-editor" rel="friend">https://wordpress.org/plugins/wp-smart-editor</a>
+
+* <a href="https://www.joomunited.com/wordpress-products/wp-media-folder" rel="friend">WP Media Folder:</a>  Supercharge your media library with folders
+* <a href="https://www.joomunited.com/wordpress-products/wp-file-download" rel="friend">WP File Download: </a>  Best in class file and document manager
+* <a href="https://www.joomunited.com/wordpress-products/wp-speed-of-light" rel="friend">WP Speed of Light: </a>  Speedup your website in an easy way
+* <a href="https://www.joomunited.com/wordpress-products/wp-latest-posts" rel="friend">WP Latest Posts: </a>  Super flexible latest posts and content
+* <a href="https://www.joomunited.com/wordpress-products/wp-table-manager" rel="friend"> WP Table Manager: </a>  Create and manage tables with style
+* <a href="https://www.joomunited.com/wordpress-products/advanced-gutenberg" rel="friend"> Advanced Gutenberg: </a>  Light and efficient WP page builder
 
 
 = Support =      
@@ -259,6 +261,9 @@ You can also use the link: www.your-website.com/sitemap.xml after checking the o
 = Is there a real interest for SEO to display a HTML sitemap? =
 It could be! if you have a lot of pages that need to be indexed with no specific priority. Our advice is to keep only the main menus of your website in the HTML sitemap.
 
+= Is it compatible with Gutenberg Editor? =
+Yes WP Meta SEO is compatible with Gutenberg editor since 3.7 version.
+
 == Screenshots ==
 
 1. Main dashboard of the plugin with SEO optimization check
@@ -271,6 +276,59 @@ It could be! if you have a lot of pages that need to be indexed with no specific
 1. Google Analytics integration with all main information and view selection
 
 == Changelog ==
+
+= 4.0.2 =
+* Fix : Title undefined in gutenberg editor
+* Fix : Compatible with Oxygen Builder
+* Fix : Error when save post
+
+= 4.0.1 =
+* Fix : Email report doesn't work
+* Fix : Css conflict in meta box
+
+= 4.0.0 =
+* Add : New admin UX and design
+* Add : Settings UX with AJAX search engine
+* Add : Implement new plugin dashboard with new criteria checks
+* Add : Implement bulk actions on meta bulk editor
+* Add : Implement bulk actions on image information bulk editor
+* Add : Implement bulk actions on the link title manager
+* Add : Check color for meta lenght: check is meta is too short or too long
+* Add : Plugin installer with quick configuration
+* Add : Environment checker on install (PHP Version, PHP Extensions, Apache Modules)
+* Add : System Check menu to notify of server configuration problems after install
+* Fix : Sitemap display on frontend
+
+= 3.7.7 =
+* Add : Add actions and filters for developers
+
+= 3.7.6 =
+* Fix : Redirect to home page when WPMS Addon is not activated
+
+= 3.7.5 =
+* Fix : Warning returned on frontend
+* Fix : Load Dashboard widget content using ajax method (large amount of data)
+* Fix : PHP warning in redirect URL interface
+
+= 3.7.4 =
+* Fix : Update alt meta for Elementor image in content
+* Fix : Redirect URL
+
+= 3.7.3 =
+* Fix : Enhance code readability and performance
+
+= 3.7.2 =
+* Fix : JUtranslation share with JoomUnited
+
+= 3.7.1 =
+* Fix : Sitemap categories not properly added
+* Fix : Broken link display column header
+* Fix : Render meta description on frontend
+
+= 3.7.0 =
+* Add : Compatible with Gutemberg editor
+* Fix : Reload analysis in metabox
+* Fix : Render title tag
 
 = 3.6.8 =
 * Fix : Conflict with Origin PageBuilder plugin

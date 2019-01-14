@@ -22,6 +22,11 @@
 	@include transform(translateY(-50%));
 }
 
+.flex-center{
+	@extend .d-flex;
+	@extend .justify-content-center;
+	@extend .align-items-center;
+}
 
 .overflow-hidden{
 	overflow: hidden;
@@ -136,7 +141,8 @@
 // body:after{
 // 	content: '';
 // 	width: 3px;
-// 	background: transparentize($yellow,.5);
+// 	padding: 0px;
+// 	background: transparentize(yellow,.5);
 // 	position: fixed;
 // 	top: 0;
 // 	z-index: 9999;
@@ -148,7 +154,7 @@
 // 	content: '';
 // 	width: 3px;
 // 	padding: 0;
-// 	background: transparentize($yellow,.5);
+// 	background: transparentize(yellow,.5);
 // 	position: fixed;
 // 	top: 0;
 // 	z-index: 9999;

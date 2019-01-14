@@ -1,4 +1,12 @@
-# Base Wordpress Development Theme
+# MIT GOV/LAB Site Development Theme
+
+## Local Directory Name
+
+Every `docker` project should be in a uniquely named directory in your filesystem. Due to a quirk in `docker`, the name of the directory *must* be unique among directories with `docker` projects in them, or you'll get weird database crosstalk with the project whose directory has the same name. I recommend naming the directory for the project something like `{{ project name }}-{{ website type }}`.
+
+*Directory Name:* `mit-gov-lab-website`
+
+
 
 ## Environment
 

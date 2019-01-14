@@ -1,25 +1,35 @@
 'use strict';
 
 var global_config = {
-    navHeight: 75,
-    mobileNavHeight: 50,  
-    navPadding: 75,      
+    navHeight: 80,
+    mobileNavHeight: 60,  
+    navPadding: 100,      
     transitionDuration: 1000,
     mobileBreakpoint: 768
 };
 
 var config = {
     dropdowns: {
-        linkSelector: '.dropdown-link',
+        linkSelector: '.has-sub-menu',
         bodyOffClass: 'dropdown-off',
         bodyOnClass: 'dropdown-on',
         dropdownSelector: '.menu-dropdown',     
         blanketSelector: '#blanket-dropdown'     
     },
-    stickyNav: {
+    viewportLabel: {
+        viewportLabelPxSelector: '#viewport-label-px'
+    },
+    clickyNav: {
         selector: '#nav',
-        navHeight: global_config.headerHeight,
-        mobileNavHeight: global_config.headerHeight,
+        navHeight: global_config.navHeight,
+        mobileNavHeight: global_config.mobileNavHeight,
+        mobileBreakpoint: global_config.mobileBreakpoint,
+        activeOnMobile: true        
+    },
+    stickyNav: {
+        selector: '.page-nav',
+        navHeight: global_config.navHeight,
+        mobileNavHeight: global_config.mobileNavHeight,
         mobileBreakpoint: global_config.mobileBreakpoint,
         activeOnMobile: true        
     },
@@ -29,7 +39,7 @@ var config = {
         selector: '.jump',
         navHeight: global_config.navHeight,
         mobileNavHeight: global_config.mobileNavHeight,
-        jumpPadding: 0,
+        jumpPadding: 50,
         mobileJumpPadding: global_config.navPadding,
         mobileBreakpoint: global_config.mobileBreakpoint,
         transitionDuration: global_config.transitionDuration,
@@ -56,7 +66,7 @@ var config = {
     },
     menuToggle:{
         menuToggleSelector: '.menu-toggle',
-        menuSelector: '#mobile-nav',
+        menuSelector: '#nav',
         blanketSelector: '#menu-blanket',
         bodyOffClass: 'menu-closed',
         bodyOnClass: 'menu-open'
@@ -70,6 +80,9 @@ var config = {
         fade: true,
         autoplaySpeed: 5000,
         speed: 700        
+    },
+    accordian: {
+
     }
 };
 

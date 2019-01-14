@@ -1,6 +1,7 @@
 <?php
+require_once AME_ROOT_DIR . '/extras/exportable-module.php';
 
-class ameMetaBoxEditor extends ameModule {
+class ameMetaBoxEditor extends ameModule implements ameExportableModule {
 	const OPTION_NAME = 'ws_ame_meta_boxes';
 	const FORCE_REFRESH_PARAM = 'ame-force-meta-box-refresh';
 
@@ -70,7 +71,6 @@ class ameMetaBoxEditor extends ameModule {
 			//Also update the default list of hidden boxes.
 			$metaBoxes->setHiddenByDefault($this->getUnmodifiedDefaultHiddenBoxes($currentScreen));
 
-			//$this->dashboardWidgets->siteComponentHash = $this->generateCompontentHash();
 			$this->saveSettings();
 		}
 
@@ -171,13 +171,8 @@ class ameMetaBoxEditor extends ameModule {
 	}
 
 	private function saveSettings() {
-		//Save per site or site-wide based on plugin configuration.
 		$json = $this->settings->toJSON();
-		if ( $this->menuEditor->get_plugin_option('menu_config_scope') === 'site' ) {
-			update_option(self::OPTION_NAME, $json);
-		} else {
-			WPMenuEditor::atomic_update_site_option(self::OPTION_NAME, $json);
-		}
+		$this->setScopedOption(self::OPTION_NAME, $json);
 	}
 
 	private function loadSettings() {
@@ -185,14 +180,7 @@ class ameMetaBoxEditor extends ameModule {
 			return $this->settings;
 		}
 
-		$scope = $this->menuEditor->get_plugin_option('menu_config_scope');
-		$json = null;
-
-		if ( $scope === 'site' ) {
-			$json = get_option(self::OPTION_NAME, null);
-		} else {
-			$json = get_site_option(self::OPTION_NAME, null);
-		}
+		$json = $this->getScopedOption(self::OPTION_NAME, null);
 
 		if ( empty($json) ) {
 			$this->settings = new ameMetaBoxSettings();
@@ -201,6 +189,32 @@ class ameMetaBoxEditor extends ameModule {
 		}
 
 		return $this->settings;
+	}
+
+	public function exportSettings() {
+		$this->loadSettings();
+		if ( $this->settings->isEmpty() ) {
+			return null;
+		}
+		return $this->settings->toArray();
+	}
+
+	public function importSettings($newSettings) {
+		if ( empty($newSettings) || !is_array($newSettings) ) {
+			return;
+		}
+
+		$settings = ameMetaBoxSettings::fromArray($newSettings);
+		$this->settings = $settings;
+		$this->saveSettings();
+	}
+
+	public function getExportOptionLabel() {
+		return 'Meta boxes';
+	}
+
+	public function getExportOptionDescription() {
+		return '';
 	}
 
 	public function enqueueTabScripts() {
@@ -223,6 +237,20 @@ class ameMetaBoxEditor extends ameModule {
 			$postTypes = get_post_types(array('public' => true, 'show_ui' => true), 'objects', 'or');
 			foreach ($postTypes as $postType) {
 				$pagesWithMetaBoxes[] = 'post-new.php?post_type=' . $postType->name;
+			}
+
+			//Include Media/attachments. This post type doesn't have a standard "new post" screen,
+			//so lets use the edit URL of the most recently uploaded image instead.
+			$attachments = get_posts(array(
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'numberposts'    => 1,
+				'post_status'    => null,
+				'post_parent'    => 'any',
+			));
+			if ( $attachments && !empty($attachments) ) {
+				$firstAttachment = reset($attachments);
+				$pagesWithMetaBoxes[] = get_edit_post_link($firstAttachment->ID, 'raw');
 			}
 
 			wp_enqueue_auto_versioned_script(

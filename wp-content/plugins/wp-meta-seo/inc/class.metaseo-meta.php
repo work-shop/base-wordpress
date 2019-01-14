@@ -10,142 +10,176 @@ defined('ABSPATH') || die('No direct script access allowed!');
 class WPMSEOMeta
 {
     /**
+     * WPMS meta prefix
+     *
      * @var string
      */
     public static $meta_prefix = '_metaseo_meta';
     /**
+     * WPMS form prefix
+     *
      * @var string
      */
     public static $form_prefix = 'metaseo_wpmseo_';
     /**
-     * @var int
+     * Meta description max length
+     *
+     * @var integer
      */
     public static $meta_length = 320;
     /**
-     * @var int
+     * Meta title max length
+     *
+     * @var integer
      */
     public static $meta_title_length = 69;
     /**
-     * @var int
+     * Meta keywords max length
+     *
+     * @var integer
      */
     public static $meta_keywords_length = 256;
     /**
+     * Meta length reason
+     *
      * @var string
      */
     public static $meta_length_reason = '';
     /**
+     * Meta fields
+     *
      * @var array
      */
     public static $meta_fields = array(
-        'general' => array(
+        'general'  => array(
             'snippetpreview' => array(
-                'type' => 'snippetpreview',
-                'title' => '',
-                'help' => '',
+                'type'     => 'snippetpreview',
+                'title'    => '',
+                'help'     => '',
+                'classrow' => 'wpms_width_100'
             ),
-            'title' => array(
-                'type' => 'textarea',
-                'title' => '',
+            'title'          => array(
+                'type'          => 'text',
+                'title'         => '',
                 'default_value' => '',
-                'description' => '',
-                'help' => '',
-                'rows' => 2
+                'description'   => '',
+                'help'          => '',
+                'rows'          => 2,
+                'class'         => 'wpms_width_100 has-length wpms-large-input',
+                'classrow'      => 'wpms_width_100'
             ),
-            'keywords' => array(
-                'type' => 'textarea',
-                'title' => '',
+            'desc'           => array(
+                'type'          => 'textarea',
+                'title'         => '',
                 'default_value' => '',
-                'description' => '',
-                'help' => '',
-                'rows' => 2
+                'class'         => 'desc wpms_width_100 has-length',
+                'rows'          => 3,
+                'description'   => '',
+                'help'          => '',
+                'classrow'      => 'wpms_width_100'
             ),
-            'desc' => array(
-                'type' => 'textarea',
-                'title' => '',
+            'keywords'       => array(
+                'type'          => 'text',
+                'title'         => '',
                 'default_value' => '',
-                'class' => 'desc',
-                'rows' => 3,
-                'description' => '',
-                'help' => '',
+                'description'   => '',
+                'help'          => '',
+                'rows'          => 2,
+                'class'         => 'wpms_width_100 has-length wpms-large-input',
+                'classrow'      => 'wpms_width_100'
             ),
-            'metaseo_chart' => array(
-                'type' => 'metaseo_chart',
-                'title' => '',
+            'metaseo_chart'  => array(
+                'type'          => 'metaseo_chart',
+                'title'         => '',
                 'default_value' => '',
-                'class' => 'metaseo_chart',
-                'rows' => 2,
-                'description' => '',
-                'help' => '',
+                'class'         => 'metaseo_chart',
+                'rows'          => 2,
+                'description'   => '',
+                'help'          => ''
             )
         ),
-        'social' => array(
-            'opengraph-title' => array(
-                'type' => 'text',
-                'title' => '',
-                'default_value' => '',
-                'description' => '',
-                'help' => '',
+        'social'   => array(
+            'facebook' => array(
+                'opengraph-title' => array(
+                    'type'          => 'text',
+                    'title'         => '',
+                    'default_value' => '',
+                    'description'   => '',
+                    'help'          => '',
+                    'class'         => 'wpms_width_100 wpms-large-input',
+                    'classrow'      => 'wpms_width_50'
+                ),
+                'opengraph-desc'  => array(
+                    'type'          => 'text',
+                    'title'         => '',
+                    'default_value' => '',
+                    'class'         => 'wpms_width_100 wpms-large-input',
+                    'rows'          => 3,
+                    'description'   => '',
+                    'help'          => '',
+                    'classrow'      => 'wpms_width_50'
+                ),
+                'opengraph-image' => array(
+                    'type'          => 'upload',
+                    'title'         => '',
+                    'default_value' => '',
+                    'class'         => 'wpms-large-input',
+                    'description'   => '',
+                    'help'          => '',
+                    'classrow'      => 'wpms_width_100'
+                )
             ),
-            'opengraph-desc' => array(
-                'type' => 'textarea',
-                'title' => '',
-                'default_value' => '',
-                'class' => 'desc',
-                'rows' => 3,
-                'description' => '',
-                'help' => '',
-            ),
-            'opengraph-image' => array(
-                'type' => 'upload',
-                'title' => '',
-                'default_value' => '',
-                'class' => 'desc',
-                'description' => '',
-                'help' => '',
-            ),
-            'twitter-title' => array(
-                'type' => 'text',
-                'title' => '',
-                'default_value' => '',
-                'description' => '',
-                'help' => '',
-            ),
-            'twitter-desc' => array(
-                'type' => 'textarea',
-                'title' => '',
-                'default_value' => '',
-                'class' => 'desc',
-                'rows' => 3,
-                'description' => '',
-                'help' => '',
-            ),
-            'twitter-image' => array(
-                'type' => 'upload',
-                'title' => '',
-                'default_value' => '',
-                'class' => 'desc',
-                'description' => '',
-                'help' => '',
-            ),
+            'twitter'  => array(
+                'twitter-title' => array(
+                    'type'          => 'text',
+                    'title'         => '',
+                    'default_value' => '',
+                    'description'   => '',
+                    'help'          => '',
+                    'class'         => 'wpms_width_100 wpms-large-input',
+                    'classrow'      => 'wpms_width_50'
+                ),
+                'twitter-desc'  => array(
+                    'type'          => 'text',
+                    'title'         => '',
+                    'default_value' => '',
+                    'class'         => 'wpms_width_100 wpms-large-input',
+                    'rows'          => 3,
+                    'description'   => '',
+                    'help'          => '',
+                    'classrow'      => 'wpms_width_50'
+                ),
+                'twitter-image' => array(
+                    'type'          => 'upload',
+                    'title'         => '',
+                    'default_value' => '',
+                    'class'         => 'wpms-large-input',
+                    'description'   => '',
+                    'help'          => '',
+                    'classrow'      => 'wpms_width_100'
+                )
+            )
+
         ),
         'non_form' => array(
             'linkdex' => array(
-                'type' => null,
-                'default_value' => '0',
+                'type'          => null,
+                'default_value' => '0'
             ),
         ),
     );
+
     /**
-     * @var array
-     */
-    public static $fields_index = array();
-    /**
+     * Default
+     *
      * @var array
      */
     public static $defaults = array();
 
     /**
      * Init
+     *
+     * @return void
      */
     public static function init()
     {
@@ -156,10 +190,8 @@ class WPMSEOMeta
     /**
      * Retrieve the meta box form field definitions for the given tab and post type.
      *
-     * @static
-     *
-     * @param  string $tab Tab for which to retrieve the field definitions.
-     * @param  string $post_type Post type of the current post.
+     * @param string $tab       Tab for which to retrieve the field definitions.
+     * @param string $post_type Post type of the current post.
      *
      * @return array             Array containing the meta box field definitions
      */
@@ -179,7 +211,7 @@ class WPMSEOMeta
             case 'general':
                 $options = get_option('wpmseo_titles');
                 if ($options['usemetakeywords'] === true) {
-                    $hr = esc_url(admin_url('admin.php?page=wpmseo_titles#top#post_types'));
+                    $hr                                        = esc_url(admin_url('admin.php?page=wpmseo_titles#top#post_types'));
                     $field_defs['metakeywords']['description'] = sprintf(
                         $field_defs['metakeywords']['description'],
                         '<a target="_blank" href="' . $hr . '">',
@@ -204,13 +236,8 @@ class WPMSEOMeta
      * Get a custom post meta value
      * Returns the default value if the meta value has not been set
      *
-     * @internal Unfortunately there isn't a filter available to hook into before returning the results
-     * for get_post_meta(), get_post_custom() and the likes. That would have been the preferred solution.
-     *
-     * @static
-     *
-     * @param  string $key Internal key of the value to get (without prefix).
-     * @param  int $postid Post ID of the post to get the value for.
+     * @param string  $key    Internal key of the value to get (without prefix).
+     * @param integer $postid Post ID of the post to get the value for.
      *
      * @return string         All 'normal' values returned from get_post_meta() are strings.
      *                        Objects and arrays are possible, but not used by this plugin
@@ -227,7 +254,7 @@ class WPMSEOMeta
         $postid = absint($postid);
         if ($postid === 0) {
             if ((isset($post) && is_object($post)) && (isset($post->post_status)
-                    && $post->post_status !== 'auto-draft')) {
+                                                       && $post->post_status !== 'auto-draft')) {
                 $postid = $post->ID;
             } else {
                 return '';
@@ -255,13 +282,11 @@ class WPMSEOMeta
     /**
      * Update a meta value for a post
      *
-     * @static
+     * @param string  $key        The internal key of the meta value to change (without prefix).
+     * @param mixed   $meta_value The value to set the meta to.
+     * @param integer $post_id    The ID of the post to change the meta for.
      *
-     * @param  string $key The internal key of the meta value to change (without prefix).
-     * @param  mixed $meta_value The value to set the meta to.
-     * @param  int $post_id The ID of the post to change the meta for.
-     *
-     * @return bool   whether the value was changed
+     * @return boolean   whether the value was changed
      */
     public static function setValue($key, $meta_value, $post_id)
     {

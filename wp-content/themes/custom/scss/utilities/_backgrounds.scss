@@ -28,19 +28,6 @@
 	background: $brand;
 }
 
-.bg-khaki{
-	background: $khaki;
-}
-
-.bg-yellow{
-	background: $brand-yellow;
-}
-
-.bg-slate{
-	background: $slate;
-}
-
-
 
 //background layouts
 
@@ -76,7 +63,7 @@
 
 	&.mask-dark{
 		&:after{
-			background: transparentize( $dark, .75 );
+			background: transparentize( $dark, .6 );
 		}
 	}
 }
