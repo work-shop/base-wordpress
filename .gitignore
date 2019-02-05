@@ -1,7 +1,3 @@
-/.env
-/dist/
-
-
 ## Linux
 
 *~
@@ -135,7 +131,6 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 
 # migrations directory for databases pulled into the local environment.
 migrations
@@ -143,3 +138,4 @@ migrations
 # compiled scripts and styles
 wp-content/themes/custom/bundles
 wp-content/themes/twenty*
+bundles
