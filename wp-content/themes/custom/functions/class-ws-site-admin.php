@@ -51,10 +51,10 @@ class WS_Site_Admin {
     public function add_options_pages() {
         if ( function_exists('acf_add_options_page') ) {
             acf_add_options_page(array(
-                "page_title" => "Site Options & Menus",
+                "page_title" => "General Site Content & Menus",
                 "capability" => "edit_posts",
                 "position" => 10,
-                "icon_url" => "dashicons-admin-home"
+                "icon_url" => "dashicons-welcome-widgets-menus"
             ));
         }
     }

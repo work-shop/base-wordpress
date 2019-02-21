@@ -49,24 +49,20 @@ class WS_Site {
             ));
 
         register_taxonomy(
-            'people_categories',
+            'people-categories',
             'people',
             array(
                 'hierarchical' => true,
                 'label' => 'People Categories',
                 'query_var' => true,
-                'rewrite' => array('slug' => 'people_categories'),
-                'rest_base'          => 'people_categories',
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'people-categories'),
+                'rest_base'          => 'people-categories',
                 'rest_controller_class' => 'WP_REST_Terms_Controller',
             )
         );
-        global $wp_taxonomies;
-        $taxonomy_name = 'people_categories';
-        if ( isset( $wp_taxonomies[ $taxonomy_name ] ) ) {
-            $wp_taxonomies[ $taxonomy_name ]->show_in_rest = true;
-            $wp_taxonomies[ $taxonomy_name ]->rest_base = $taxonomy_name;
-            $wp_taxonomies[ $taxonomy_name ]->rest_controller_class = 'WP_REST_Terms_Controller';
-        }
+
+        
 
     }
 
