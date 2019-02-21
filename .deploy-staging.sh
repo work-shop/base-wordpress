@@ -14,8 +14,8 @@ scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom $KINSTA_STAGING_USER@$KI
 #scp -P $KINSTA_STAGING_PORT -r wp-content/themes/custom/bundles $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/themes/custom
 
 # Plugins and must use plugins
-#scp -P $KINSTA_STAGING_PORT -r wp-content/plugins $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/
-#scp -P $KINSTA_STAGING_PORT -r wp-content/mu-plugins $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/
+scp -P $KINSTA_STAGING_PORT -r wp-content/plugins $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/
+scp -P $KINSTA_STAGING_PORT -r wp-content/mu-plugins $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/
 
 #specific plugins
 #scp -P $KINSTA_STAGING_PORT -r wp-content/plugins/wc-product-customer-list-premium $KINSTA_STAGING_USER@$KINSTA_STAGING_IP:./public/wp-content/plugins
