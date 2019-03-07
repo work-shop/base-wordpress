@@ -5,45 +5,34 @@
 	width: 100%;
 	height: 100%;
 	top: 0;
-	left: 0;
+	left: -100vw;
 	z-index: 11;
-	opacity: 0;
-	transition: all $modal-transition;
-
-	//@media only screen and (min-width: 1025px){
-		transform: scale(0);
-	//}
-	//@media only screen and (max-width: 1024px){
-		//left: 150%;
-	//}
+	opacity: .5;
+	transition:  opacity $modal-transition ease-in-out, left 0s linear $modal-transition;
 
 	&.on{
-		transition: all $modal-transition;
+		transition: opacity $modal-transition;
+		left: 0;
 		opacity: 1;
-		//@media only screen and (min-width: 1025px){
-			transform: scale(1);
-		//}
-		//@media only screen and (max-width: 1024px){
-			//left: 0%;
-		//}
 	}
 
 	&.scroll{
 		overflow: scroll;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 }
 
 #modal-close{
 	position: fixed;
-	top: 20px;
-	right: 20px;
+	top: 40px;
+	right: -100px;
 	height: 40px;
 	width: 40px;
 	z-index: 12;
 	text-align: center;
-
-	@include transition(transform $modal-transition);
-	@include transform(translate(100px, 0%));
+	opacity: 0;
+	transition: opacity $modal-transition, right 0s linear $modal-transition;
 
 	.icon:before{
 		font-size: 50px;
@@ -61,7 +50,7 @@
 	left: 200%;
 	@include transition(opacity .1s);
 	opacity: 0;
-	background: transparentize($ultra-light, .5);
+	//background: transparentize($ultra-light, .5);
 }
 
 //body styles
@@ -69,7 +58,9 @@
 	overflow: hidden;
 
 	#modal-close{
-		@include transform(translate(0%, 0%));
+		transition: opacity $modal-transition*5;
+		right: 40px;
+		opacity: 1;
 	}
 
 	#blanket{

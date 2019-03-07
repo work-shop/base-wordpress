@@ -37,35 +37,83 @@ body{
 //default sizes include:
 //massive, huge, large, medium, regular, small
 
+
+h1,h2,h3,h4,h5,h6{
+	font-family: $font-main;
+	line-height: 1.2;
+}
+
 h1,.h1{
-	@include text-size($text-h1);
-	font-family: $font-secondary;
+	font-size: 4vw;
+
+	@media screen and (max-width: $lg) {
+		font-size: 5vw;
+	}	
+
+	@media screen and (max-width: $md) {
+		font-size: 5vw;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 7vw;
+	}
+
+	@media screen and (max-width: $xs) {
+		font-size: 8vw;
+	}
 }
 
 h2,.h2{
-	@include text-size($text-h2);
-	font-family: $font-secondary;
-	line-height: 1.1;
+	font-size: 2.5vw;
+
+	@media screen and (max-width: $lg) {
+		font-size: 3.2vw;
+	}	
+
+	@media screen and (max-width: $md) {
+		font-size: 3.2vw;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 4vw;
+	}
+
+	@media screen and (max-width: $xs) {
+		font-size: 5vw;
+	}	
 }
 
 h3,.h3{
-	@include text-size($text-h3);
-	font-family: $font-secondary;
+	font-size: 1.7vw;
+	line-height: 1.4;
+
+	@media screen and (max-width: $lg) {
+		font-size: 1.9vw;
+	}	
+
+	@media screen and (max-width: $md) {
+		font-size: 2.0vw;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 3.5vw;
+	}
+
+	@media screen and (max-width: $xs) {
+		font-size: 5vw;
+	}	
 }
 
 h4,.h4{
 	@include text-size($text-h4);
-	font-family: $font-secondary;
 }
 
 h5,.h5{
 	@include text-size($text-h5);
-	font-family: $font-secondary;
 }
 
 h6,.h6{
 	@include text-size($text-h5);
-	font-family: $font-secondary;
 }
 
 p{
