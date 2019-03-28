@@ -1,10 +1,20 @@
 <?php
 $fc = get_field('page_flexible_content');
 $fc_row = $fc[$GLOBALS['fc_index']]; 
-$section_heading = $fc_row['section_heading'];
-$rich_text = $fc_row['rich_text'];
+
+$section_id = $fc_row['section_settings']['section_id'];
+$section_heading = $fc_row['section_settings']['section_heading'];
+
+$rich_text = $fc_row['section_content']['rich_text'];
+
+if( $section_id == NULL || $section_id == false ){
+	$section_id = $GLOBALS['fc_index']; 
+} 
+
+//echo '<pre>' , var_dump($fc_row) , '</pre>';
+
 ?>
-<section class="block flexible-content fc fc-rich-text">
+<section class="block flexible-content fc fc-rich-text" id="fc-<?php echo $section_id; ?>">
 	<div class="container-fc">
 		<?php if( $section_heading ): ?>
 			<div class="row fc-section-heading fc-row-primary">

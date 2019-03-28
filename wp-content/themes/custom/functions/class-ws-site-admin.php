@@ -7,6 +7,7 @@ class WS_Site_Admin {
         add_action('admin_menu', array( $this, 'manage_admin_menu_options' ) );
         add_action('acf/init', array($this, 'add_options_pages'));
         add_action( 'admin_head', array( $this, 'admin_css'));
+        add_action( 'admin_head', array( $this, 'admin_js'));
 
         add_action('wp_dashboard_setup', array($this, 'remove_dashboard_widgets') );
         add_action('wp_before_admin_bar_render', array($this, 'remove_admin_bar_items'));
@@ -25,7 +26,7 @@ class WS_Site_Admin {
         remove_meta_box("dashboard_primary", "dashboard", "side");   // WordPress.com blog
         remove_meta_box("dashboard_secondary", "dashboard", "side"); // Other WordPress news
         remove_post_type_support('page', 'comments');
-        remove_menu_page('index.php');  // Remove the dashboard link from the Wordpress sidebar.
+       // remove_menu_page('index.php');  // Remove the dashboard link from the Wordpress sidebar.
         remove_menu_page('edit-comments.php');   // Remove the comments link from the Wordpress sidebar.
 
         if ( !current_user_can( 'administrator' ) ) {
@@ -57,7 +58,11 @@ class WS_Site_Admin {
                 "icon_url" => "dashicons-welcome-widgets-menus"
             ));
         }
+
+        acf_update_setting('google_api_key', 'AIzaSyBBurwCtrQ2a4q-CrpB-Wa6cdLO-sR1Zxw');
+
     }
+
 
     public function pages_per_page_wpse_23503( $check, $object_id, $meta_key, $single ) {
         if( 'edit_page_per_page' == $meta_key )
@@ -69,6 +74,9 @@ class WS_Site_Admin {
         wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/bundles/admin-bundle.css' );
     }
 
+    public function admin_js() {
+        wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js');
+    }
 
     /**
      * Removes comments icon from the admin bar.

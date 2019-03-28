@@ -1,4 +1,5 @@
-$fc-padding: 7vh 0 7vh 0;
+$fc-padding-value: 10vh;
+$fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 
 .fc{
 	padding: $fc-padding;
@@ -14,44 +15,35 @@ $fc-padding: 7vh 0 7vh 0;
 
 }
 
+#fc-nav{
+	padding: $fc-padding-value/2 0;
+
+	li{
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	a{
+		text-decoration: underline;
+	}
+}
+
 
 .fc-button{
 
 	a{
-		padding: 6px 10px 6px 10px;
+		//padding: 6px 10px 6px 10px;
 		display: inline-block;
-		text-align: center;
+		//text-align: center;
 		@include transition(all .2s);
 		position: relative;
-		border: 1px solid;
+		//border: 1px solid;
 		border-radius: 4px;
+		text-decoration: underline;
 
 		&:hover{
-			transform: scale(1.07);
-		}
-
-		&.tan:hover{
-			color: $tan;
-		}
-
-		&.brand:hover{
-			color: $brand;
-		}
-
-		&.medium:hover{
-			color: $medium;
-		}
-
-		&.dark:hover{
-			color: $dark;
-		}
-
-		&.light:hover{
-			color: $light;
-		}
-
-		&.white:hover{
-			color: $white;
+			//transform: scale(1.02);
+			text-decoration-style: double;
 		}
 
 		// &:before {
@@ -93,20 +85,14 @@ $fc-padding: 7vh 0 7vh 0;
 .container-fc{
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 105px;
-	max-width: 1410px;
-	//border: 1px solid $medium;
-
-	@media screen and (max-width: $lg) {
-		padding: 0 70px;	
-	}
+	padding: 0 $container-fluid-padding;
 
 	@media screen and (max-width: $md) {
-		padding: 0 50px;	
+		padding: 0 $container-fluid-padding-md;	
 	}
 
 	@media screen and (max-width: $sm) {
-		padding: 0 20px;	
+		padding: 0 $container-fluid-padding-mobile;	
 	}		
 }
 
@@ -122,10 +108,16 @@ $fc-padding: 7vh 0 7vh 0;
 .fc-rich-text{
 }
 
+
+
 //BACKGROUND
 
 .fc-background{
 	padding: 0;
+
+	.block-background{
+		z-index: 0;
+	}
 
 	.mask:after{
 		content: '';
@@ -140,7 +132,7 @@ $fc-padding: 7vh 0 7vh 0;
 
 	.mask-dark{
 		&:after{
-			background: transparentize($dark, .5);
+			background: transparentize(black, .4);
 		}
 	}
 
@@ -152,44 +144,23 @@ $fc-padding: 7vh 0 7vh 0;
 
 }
 
-.fc-background-image-height-33,.fc-background-height-33{
-	height: 33vh;
-}
 
-.fc-background-image-height-50,.fc-background-height-50{
-	height: 50vh;
-}
-
-.fc-background-image-height-66,.fc-background-height-66{
-	height: 66vh;
-}
-
-.fc-background-image-height-100,.fc-background-height-100{
-	height: 100vh;
-}
-
-.fc-background-image-height-natural-image{
-	
-}
-
-.fc-background-natural-image-container{
-	img{
-		display: block;
-	}
-}
-
-.fc-background-height-natural-text{
-	padding: $fc-padding;
-}
-
-.fc-background-image-height-33,.fc-background-height-33,.fc-background-image-height-50,.fc-background-height-50,.fc-background-image-height-66,.fc-background-height-66,.fc-background-image-height-100,.fc-background-height-100,.fc-background-image-height-natural-image{
-
+.fc-background-image{
 	.fc-background-text{
 		max-width: none;
 		@extend .vertical-center;
 		position: absolute;
 		display: table;
 		width: 100%;
+	}
+}
+
+
+.fc-background-natural.fc-background-color{
+	padding: $fc-padding;
+
+	img{
+		display: block;
 	}
 
 }
@@ -228,73 +199,6 @@ $fc-padding: 7vh 0 7vh 0;
 }
 
 
-//multi-column
-.fc-background-multi-column-container{
-	display: grid;
-
-
-	
-	&.image-left{
-		&.image-33{
-			grid-template-columns: 40% 60%;
-		}
-		&.image-50{
-			grid-template-columns: 50% 50%;
-		}
-		&.image-66{
-			grid-template-columns: 60% 40%;
-		}		
-
-		@media screen and (max-width: $sm) {
-			display: block;
-
-			.fc-background-multi-column-1{
-				height: 61vh;
-			}
-		}
-
-	}
-
-	&.image-right{
-		&.image-33{
-			grid-template-columns: 60% 40%;
-		}
-		&.image-50{
-			grid-template-columns: 50% 50%;
-		}
-		&.image-66{
-			grid-template-columns: 40% 60%;
-		}		
-
-		@media screen and (max-width: $sm) {
-			display: block;
-
-			.fc-background-multi-column-2{
-				height: 61vh;
-			}
-		}
-
-	}
-
-	@media screen and (max-width: $md) {
-		&.image-left,&.image-right{
-			&.image-33,&.image-50,&.image-66{
-				grid-template-columns: 50% 50%;
-			}
-		}
-	}
-
-	.fc-background-heading,.fc-background-subheading,.fc-background-link{
-		width: 100%;
-	}
-
-}
-
-.fc-background-multi-column-1,.fc-background-multi-column-2{
-	position: relative;
-	padding: 12vh 4vw;
-}
-
 
 //REPEATING PARAGRAPHS
 
@@ -305,6 +209,7 @@ $fc-padding: 7vh 0 7vh 0;
 
 		h3{
 			@extend .bold;
+			margin-bottom: 1em;
 		}
 
 		&:last-child{
@@ -345,8 +250,7 @@ $fc-padding: 7vh 0 7vh 0;
 }
 
 .fc-labelled-list-item{
-	margin-bottom: 2.5em;
-	//outline: 1px solid white;
+	margin-bottom: 3em;
 
 	&:last-child{
 		margin-bottom: 0;
@@ -365,7 +269,7 @@ $fc-padding: 7vh 0 7vh 0;
 .fc-labelled-list-body{
 	p{
 		&:last-child{
-			margin-bottom: 0;
+			//margin-bottom: 0;
 		}
 	}
 }
