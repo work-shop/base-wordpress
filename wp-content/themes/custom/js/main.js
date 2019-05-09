@@ -15,6 +15,7 @@ import { jumpLinks } from './jump-links.js';
 import { modals } from './modals.js';
 import { slickSlideshows } from './slick-slideshows.js';
 import { sitewideAlert } from './sitewide-alert.js';
+import { progressiveImages } from './progressive-images.js';
 import { livereload } from './livereload-client.js';
 
 //optional
@@ -33,6 +34,7 @@ jumpLinks(config.jumpLinks);
 modals(config.modals);
 slickSlideshows(config.slickSlideshows);
 sitewideAlert();
+progressiveImages();
 
 //optional
 stickyNav(config.stickyNav);

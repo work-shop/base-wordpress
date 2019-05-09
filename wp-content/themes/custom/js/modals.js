@@ -35,7 +35,23 @@ function modals( config ) {
 			modalToggle(target, true);	
 		});
 
-	});
+		//close the modal when escape key is pressed, if an input is not focused
+		$(document).keyup(function(e) {
+			if (e.key === "Escape") { 	
+				if($('input:focus')){
+					var elem = document.activeElement;
+					if ( elem.type ){ 
+
+					}
+					else{ 
+						closeModal();
+					}
+				}
+				
+			}
+		});
+
+			});
 
 }
 

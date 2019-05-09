@@ -1,0 +1,32 @@
+.progressive-image{
+	overflow: hidden;
+
+	img.preview {
+		filter: blur(.25vw);
+
+		&.unblur{
+			filter: none;
+		}
+
+	}
+
+	img.reveal {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1;
+		will-change: transform, opacity;
+		animation: reveal .5s ease-out;
+
+		&.revealed{
+			position: static;
+		}
+	}
+}
+
+
+@keyframes reveal {
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+}
