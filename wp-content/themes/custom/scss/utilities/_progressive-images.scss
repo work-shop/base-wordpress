@@ -1,11 +1,11 @@
-.progressive-image{
+.progressive,.progressive-projects{
 	overflow: hidden;
 
 	img.preview {
 		filter: blur(.25vw);
 
-		&.unblur{
-			filter: none;
+		&.progressive-hidden{
+			opacity: 0;
 		}
 
 	}
@@ -15,12 +15,17 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		z-index: 1;
+		z-index: 0;
 		will-change: transform, opacity;
 		animation: reveal .5s ease-out;
 
+		&.static{
+			//position: static;
+		}
+
 		&.revealed{
-			position: static;
+
+			//position: static;
 		}
 	}
 }

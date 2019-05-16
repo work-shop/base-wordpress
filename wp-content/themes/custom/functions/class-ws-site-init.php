@@ -69,24 +69,29 @@ class WS_Site {
 
     public function register_image_sizing() {
         if ( function_exists( 'add_image_size' ) ) {
+            add_image_size('progressive', 12, 8, false); //1.6:1
             add_image_size('xs', 300, 187, false); //1.6:1
-            add_image_size('xs_cropped', 300, 187, true); //1.6:1
+            add_image_size('xs_landscape', 187, 300, true); //1.6:1
+            add_image_size('xs_portrait', 300, 187, true); //1.6:1
             add_image_size('xs_square', 300, 300, true);
-            add_image_size('sm', 768, 480, false); //1.6:1
-            add_image_size('sm_cropped', 768, 480, true); //1.6:1
-            add_image_size('sm_square', 768, 768, true);
-            add_image_size('md', 1024, 640, false); //1.6:1
-            add_image_size('md_cropped', 1024, 640, true); //1.6:1
-            add_image_size('md_square', 1024, 1024, true);
-            add_image_size('lg', 1440, 900, false); //1.6:1
-            add_image_size('lg_cropped', 1440, 900, true); //1.6:1
-            add_image_size('lg_square', 1440, 1440, true);   
+            add_image_size('sm', 512, 320, false); //1.6:1
+            add_image_size('sm_landscape', 512, 320, true); //1.6:1
+            add_image_size('sm_landscape', 512, 320, true); //1.6:1
+            add_image_size('sm_portrait', 320, 512, true); //1.6:1
+            add_image_size('sm_square', 512, 512, true);
+            add_image_size('md', 768, 480, false); //1.6:1
+            add_image_size('md_landscape', 768, 480, true); //1.6:1
+            add_image_size('md_portrait', 480, 768, true); //1.6:1
+            add_image_size('md_square', 768, 768, true);
+            add_image_size('lg', 1280, 800, false); //1.6:1
+            add_image_size('lg_landscape', 1280, 800, true); //1.6:1
+            add_image_size('lg_portrait', 800, 1200, true); //1.6:1
+            add_image_size('lg_square', 1280, 1280, true);   
             add_image_size('xl', 1920, 1200, false); //1.6:1
-            add_image_size('xl_cropped', 1920, 1200, true); //1.6:1
+            add_image_size('xl_landscape', 1920, 1200, true); //1.6:1
+            add_image_size('xl_portrait', 1200, 1920, true); //1.6:1
             add_image_size('xl_square', 1920, 1920, true);  
-            add_image_size('acf_preview', 300, 300, false);            
             add_image_size('fb', 1200, 630, true);
-            add_image_size('page_hero', 1680, 770, true);
         }
     }
 

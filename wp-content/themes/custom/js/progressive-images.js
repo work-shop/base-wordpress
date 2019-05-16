@@ -7,8 +7,8 @@ var progressiveBackgroundCount = 0;
 
 
 
-function progressiveImages(){
-	//console.log('progressive-images.js loaded');
+function progressive(){
+	//console.log('progressive.js loaded');
 
 	$(window).on('load', function() {
 		getProgressiveImages();
@@ -17,7 +17,7 @@ function progressiveImages(){
 
 
 	function getProgressiveImages(){
-		var images = $('.progressive-image');
+		var images = $('.progressive');
 		progressiveLength = images.length;
 
 		if (progressiveLength > 0){
@@ -51,7 +51,6 @@ function progressiveImages(){
 				var element = $(backgroundImages[i]);
 				var src = element.data('src');
 				element.css('background-image', 'url("' + src + '")');
-				progressiveBackgroundCount++;
 			}
 
 		}
@@ -61,7 +60,7 @@ function progressiveImages(){
 	function displayProgressiveImage(_newImg,_oldImg){
 		setTimeout(function() {
 			_newImg.addClass('revealed');
-			_oldImg.remove();	
+			_oldImg.addClass('progessive-hidden');	
 		}, 500);
 		progressiveCount++;
 	}
@@ -69,6 +68,6 @@ function progressiveImages(){
 }
 
 
-export { progressiveImages };
+export { progressive };
 
 
