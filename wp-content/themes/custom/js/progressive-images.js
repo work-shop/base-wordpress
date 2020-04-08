@@ -25,12 +25,15 @@ function progressive(){
 			for(var i = 0; i < progressiveLength; i++){
 				var container = $(images[i]);
 				var src = container.data('src');
+				var srcset = container.data('srcset');
+				var sizes = container.data('sizes');
 				var img = container.find('img');
 
 				var newImg = $('<img>');
+				newImg.attr('srcset',srcset);
+				newImg.attr('sizes',sizes);
 				newImg.attr('src',src);
 				newImg.addClass('reveal');
-
 				container.append(newImg);
 
 				displayProgressiveImage(newImg,img);

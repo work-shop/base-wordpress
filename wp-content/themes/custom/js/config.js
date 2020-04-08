@@ -1,8 +1,8 @@
 'use strict';
 
 var global_config = {
-    navHeight: 80,
-    mobileNavHeight: 60,  
+    navHeight: 100,
+    mobileNavHeight: 80,  
     navPadding: 100,      
     transitionDuration: 1000,
     mobileBreakpoint: 768
@@ -10,7 +10,7 @@ var global_config = {
 
 var config = {
     dropdowns: {
-        linkSelector: '.has-sub-menu',
+        linkSelector: '.dropdown-link',
         bodyOffClass: 'dropdown-off',
         bodyOnClass: 'dropdown-on',
         dropdownSelector: '.menu-dropdown',     
@@ -46,7 +46,7 @@ var config = {
         preventUrlChange: false
     },
     loading: {
-        loadDelay: 1500,
+        loadDelay: 200,
         loadingClass: 'loading',
         loadedClass: 'loaded',
     },
@@ -59,7 +59,7 @@ var config = {
     },
     scrollSpy: {
         firstElementSelector : '.spy-first',
-        spyTargetSelector : '.spy-target',
+        spyTargetSelector : '.block',
         spyLinkSelector : '.spy-link',
         spyActiveClass : 'spy-active',
         spyOffset : 150

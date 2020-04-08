@@ -73,17 +73,30 @@
 }
 
 .padded-less{
-	padding-top: 2%;
-	padding-bottom: 3%;
+	padding-top: $container-fluid-padding-md;
+	padding-bottom: $container-fluid-padding-md;
+
+  @media screen and (max-width: $sm) {
+    padding-top: $container-fluid-padding-md*.75;
+  padding-bottom: $container-fluid-padding-md*.75;
+  }
 }
 
 .padded{
-	padding-top: 10vh;
-	padding-bottom: 8vh;
+	padding-top: 12vh;
+	padding-bottom: 11vh;
+}
+
+.padded-top{
+  padding-top: 12vh;
+}
+
+.padded-bottom{
+  padding-bottom: 11vh;
 }
 
 .padded-more{
-	padding-top: 10%;
-	padding-bottom: 11%;
+	padding-top: 15vh;
+	padding-bottom: 14vh;
 }
 

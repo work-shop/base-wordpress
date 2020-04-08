@@ -15,7 +15,11 @@ function scrollSpy( config ){
 
 		scrollSpyProperties.targets = $(config.spyTargetSelector);
 		scrollSpyProperties.links = $(config.spyLinkSelector);
-		scrollSpyProperties.offset = config.spyOffset;
+		if($('body').hasClass('home')){
+			scrollSpyProperties.offset = 0;
+		} else{
+			scrollSpyProperties.offset = config.spyOffset;
+		}
 		scrollSpyProperties.spyActiveClass = config.spyActiveClass;
 
 		if( config.firstElementSelector ){
@@ -122,7 +126,7 @@ function spy(){
 			nextTargetPosition = nextTargetOffsetPosition - tolerance;
 		}
 
-		//if the user's window.scrollTop is greater than or equal to the offsetTop of the element we're currently checking AND it's not the last targetable element OR the user's window.scrollTop is less than the next element then we think this element should be active
+		//if the user's window.scrollTop is greater than or equal to the offsetTop of the element we're currently checking AND it's not the last targetable element OR the user's window.scrollTop is less than the next element, then we think this element should be active
 		if( userLocation >= targetPosition && ( ( i === nElements - 1 ) || (userLocation < nextTargetPosition) ) || firstPass ) {
 
 			//if the element we think should be active is not the current element
@@ -142,7 +146,8 @@ function spy(){
 
 				if( scrollSpyProperties.spyMap[i].hasLink ){
 
-					scrollSpyProperties.links.filter(scrollSpyProperties.spyActiveClass).removeClass(scrollSpyProperties.spyActiveClass);
+					scrollSpyProperties.links.filter('.' + scrollSpyProperties.spyActiveClass).removeClass(scrollSpyProperties.spyActiveClass);
+					//console.log(scrollSpyProperties.links.filter('.' + scrollSpyProperties.spyActiveClass));
 					scrollSpyProperties.spyMap[i].link.addClass(scrollSpyProperties.spyActiveClass);
 					//scrollSpyProperties.spyMap[i].link.parent.addClass('active');
 

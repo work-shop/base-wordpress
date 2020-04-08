@@ -1,12 +1,13 @@
 
-@import "bourbon";
+//@import "bourbon";
 @import "bootstrap/bootstrap";
 @import "slick.scss";
+@import "../fonts/fonts.css";
 
 //definitions
 @import "definitions/variables";
 @import "definitions/type-sizes";
-@import "definitions/mixins";
+//@import "definitions/mixins";
 
 //utilities
 @import "utilities/reset";
@@ -20,7 +21,8 @@
 @import "utilities/jquery-accordian";
 @import "utilities/accordion";
 @import "utilities/flexible-content";
-@import "utilities/progressive-images";
+//@import "utilities/progressive-images";
+//@import "utilities/map-style";
 
 //site components
 @import "site/typography";
@@ -35,4 +37,3 @@
 //site pages and partials
 @import "site/page";
 @import "site/home";
-@import "site/about";

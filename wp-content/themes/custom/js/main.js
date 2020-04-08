@@ -7,36 +7,45 @@ window.$ = global.$;
 //must use
 import { config } from './config.js';
 import { loading } from './loading.js';
-import { viewportLabel } from './viewport-label.js';
 import { linksNewtab } from './links-newtab.js';
 import { jqueryAccordian } from './jquery-accordian.js';
 import { accordian } from './accordian.js';
 import { jumpLinks } from './jump-links.js';
 import { modals } from './modals.js';
 import { slickSlideshows } from './slick-slideshows.js';
-import { sitewideAlert } from './sitewide-alert.js';
-import { progressiveImages } from './progressive-images.js';
 import { livereload } from './livereload-client.js';
+import { scrollSpy } from './scroll-spy.js';
+import { vh } from './vh.js';
+
 
 //optional
+//import { viewportLabel } from './viewport-label.js';
+//import { sitewideAlert } from './sitewide-alert.js';
+//import { progressiveImages } from './progressive-images.js';
 import { stickyNav } from './sticky-nav.js';
 import { dropdowns } from './dropdowns.js';
 import { menuToggle } from './menu-toggle.js';
 
-//must use 
+
+scrollSpy(config.scrollSpy);
 livereload();
 loading(config.loading);
 linksNewtab(config.linksNewtab);
-viewportLabel(config.viewportLabel);
 jqueryAccordian();
 accordian();
 jumpLinks(config.jumpLinks);
 modals(config.modals);
 slickSlideshows(config.slickSlideshows);
-sitewideAlert();
-progressiveImages();
-
-//optional
+vh();
 stickyNav(config.stickyNav);
 dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
+
+//viewportLabel(config.viewportLabel);
+//sitewideAlert();
+//progressiveImages();
+
+
+$(document).ready( function() {
+
+});

@@ -35,15 +35,25 @@ function jumpLinks(config){
 			var offset = 0;
 
 			if( $(window).width() > config.mobileBreakpoint ){
-				offset = config.navHeight - 15;	
+				offset = config.navHeight;	
 			} else{
-				offset = config.mobileNavHeight - 15;	
+				offset = config.mobileNavHeight;	
 			}
 
 			//offset = 0; //override for landing page
 
 			$('html,body').animate({
 				scrollTop: $( $(this).attr('href') ).offset().top - offset
+			}, config.transitionDuration);
+
+		});
+
+		$('.jump-submit').click(function(e){
+
+			e.preventDefault();
+
+			$('html,body').animate({
+				scrollTop: $( $(this).attr('href') ).offset().top - 100
 			}, config.transitionDuration);
 
 		});

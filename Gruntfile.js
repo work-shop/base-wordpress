@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             },
             adminDev: {
                 options: {
-                    sourceMap: true, // sourcemaps
+                    sourceMap: true, 
                     sourceComments: true,
                     outputStyle: 'expanded',
                 },
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             },
             adminDist: {
                 options: {
-                    sourceMap: true, // sourcemaps
+                    sourceMap: true, 
                     sourceComments: false,
                     outputStyle: 'compressed'
                 },
@@ -69,9 +69,9 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    sourceMap: true, // sourcemaps
-                    sourceComments: true,
-                    outputStyle: 'expanded',
+                    sourceMap: false, 
+                    sourceComments: false,
+                    outputStyle: 'compressed',
                 },
                 files: [{
                     src: [ scss_main_src ],
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
-                    sourceMap: true, // sourcemaps
+                    sourceMap: true, 
                     sourceComments: false,
                     outputStyle: 'compressed'
                 },
@@ -97,10 +97,11 @@ module.exports = function(grunt) {
                 options: {
                     watch: true,
                     browserifyOptions: {
-                        debug: true // sourcemaps
+                        debug: false // true for sourcemaps
                     },
                     transform: [
-                        ['babelify', {presets: 'env'}]
+                        ['babelify', {presets: 'env'}],
+                         ['uglifyify', {global: true}] //false for unminified
                     ]
                 }
             },

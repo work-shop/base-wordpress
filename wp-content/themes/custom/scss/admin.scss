@@ -1,2 +1,84 @@
 @import "definitions/variables";
 
+//hide map data admin field
+.acf-field-5e3de7fdda967{
+	display: none !important;
+}
+
+//make navigation menus easier to read
+.acf-field-5da7c569980ef{
+	.acf-row{
+		.acf-fields{
+			border-bottom: 3px solid #7E8993;
+		}
+	}
+
+	.acf-row-handle.order{
+		border-bottom: 3px solid #7E8993;
+	}
+
+	.acf-repeater{
+
+		.acf-row-handle.order{
+			border-bottom: 1px solid #eee;
+		}
+	}
+}
+
+.layout[data-layout="multi_column"]{
+	.acf-row{
+		.acf-fields{
+			border-bottom: 3px solid #7E8993;
+		}
+	}
+
+	.acf-row-handle.order{
+		border-bottom: 3px solid #7E8993;
+	}
+
+	.acf-repeater{
+
+		.acf-row-handle.order{
+			border-bottom: 1px solid #eee;
+		}
+	}
+}
+
+.acf-fc-layout-handle.ui-sortable-handle{
+	background: lighten(#ECF4F7,2%);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#menu-posts-shop_order,#menu-posts-shop_coupon{
+	display: none;
+}
+
+.wod-alert{
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 8px;
+
+	background: #cce5ff;
+	color: $brand;
+	border-color: $brand;
+
+	&.wod-alert-success{
+		color: darken(#d4edda, 55%);
+		background: #d4edda;
+		border-color: darken(#d4edda, 55%);
+
+	}
+
+	&.wod-alert-error{
+		color: darken($error, 10%);
+		background: lighten($error,30%);
+		border-color: darken($error, 10%);
+
+	}
+
+}
+
+#PO_override.column-PO_override,.PO_override.column-PO_override,.column-PO_override{
+	display: none;
+}
